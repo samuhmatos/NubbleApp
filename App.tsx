@@ -15,7 +15,7 @@ function App(): JSX.Element {
     <ThemeProvider theme={theme}>
       <SafeAreaView>
         <View style={{paddingHorizontal:20}}>
-          <Text preset='headingLarge' bold italic style={{}}>Samuels</Text>
+          <Text preset='headingLarge' bold italic style={{}}>Samuel</Text>
 
           <Button title='Entrar' marginBottom='s20'/>
           <Button title='Outline' marginBottom='s20' preset='outline'/>
