@@ -11,7 +11,7 @@ export function SignUpScreen(){
         //TODO: Implementar
     }
     return (
-        <Screen canGoBack>
+        <Screen canGoBack scrollable>
             <Text preset="headingLarge" mb="s32">Criar uma conta</Text>
 
             <TextInput
@@ -36,6 +36,7 @@ export function SignUpScreen(){
                 RightComponent={<Icon name="eyeOn" color='gray2'/>}
                 boxProps={{mb:'s48'}}
             />
+            
 
             <Button title='criar uma conta' onPress={submitForm}/>
         </Screen>
