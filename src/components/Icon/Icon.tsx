@@ -31,7 +31,7 @@ import {SettingsIcon} from '../../assets/icons/SettingsIcon';
 import {TrashIcon} from '../../assets/icons/TrashIcon';
 
 import { ThemeColors} from '../../theme/theme';
-import { useAppTheme } from '../../hoocks/useAppTheme';
+import { useAppTheme } from '../../hooks/useAppTheme';
 
 
 export interface IconBase{
