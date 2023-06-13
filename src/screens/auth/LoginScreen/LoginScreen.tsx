@@ -20,7 +20,7 @@ export function LoginScreen(){
             />
             <TextInput 
                 label='Senha'
-                placeholder='Digite sua sennha' 
+                placeholder='Digite sua senha' 
                 RightComponent={<Icon name="eyeOn" color='gray2'/>}
                 boxProps={{mb:'s10'}}
             />
