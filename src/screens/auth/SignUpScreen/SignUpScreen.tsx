@@ -1,7 +1,6 @@
 import React from "react";
 import { Screen } from "../../../components/Screen/Screen";
 import { Text } from "../../../components/Text/Text";
-import { Icon } from "../../../components/Icon/Icon";
 import { TextInput } from "../../../components/TextInput/TextInput";
 import { Button } from "../../../components/Button/Button";
 import { PasswordInput } from "../../../components/PasswordInput/PasswordInput";
@@ -12,7 +11,7 @@ export function SignUpScreen(){
         //TODO: Implementar
     }
 
-    
+
     return (
         <Screen canGoBack scrollable>
             <Text preset="headingLarge" mb="s32">Criar uma conta</Text>
