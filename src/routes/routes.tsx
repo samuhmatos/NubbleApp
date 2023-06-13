@@ -13,7 +13,8 @@ export function Router(){
             <Stack.Navigator 
                 initialRouteName="LoginScreen" 
                 screenOptions={{
-                    headerShown:false
+                    headerShown:false,
+                    fullScreenGestureEnabled: true
                 }}
             >
                 <Stack.Screen name="LoginScreen" component={LoginScreen} />
