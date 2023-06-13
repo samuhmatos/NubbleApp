@@ -11,6 +11,8 @@ export function SignUpScreen(){
     function submitForm(){
         //TODO: Implementar
     }
+
+    
     return (
         <Screen canGoBack scrollable>
             <Text preset="headingLarge" mb="s32">Criar uma conta</Text>
