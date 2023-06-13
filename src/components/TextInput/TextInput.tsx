@@ -9,12 +9,14 @@ interface TextInputProps extends RNTextInputProps{
     label:string;
     errorMessage?:string;
     RightComponent?:React.ReactElement;
+    boxProps?:BoxProps;
 }
 
 export function TextInput({
     label, 
     errorMessage,
     RightComponent,
+    boxProps,
     ...rnTextInputProps
 } : TextInputProps){
     const {colors} = useAppTheme();
@@ -34,8 +36,8 @@ export function TextInput({
     }
 
     return (
-        <Pressable onPress={focusInput}>
-            <Box>
+        <Box {...boxProps}>
+            <Pressable onPress={focusInput}>
                 <Text mb="s4" preset="paragraphMedium">{label}</Text>
                 <Box {...$textInputContainer}>
                     <RNTextInput 
@@ -51,8 +53,8 @@ export function TextInput({
                     )}
                 </Box>
                 {errorMessage && <Text preset="paragraphSmall" bold color="error">{errorMessage}</Text>}
-            </Box>
-        </Pressable>
+            </Pressable>
+        </Box>
     )
 }
 

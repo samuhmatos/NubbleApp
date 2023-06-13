@@ -20,21 +20,20 @@ function App(): JSX.Element {
           <Text marginBottom='s8' preset='headingLarge'>Olá</Text>
           <Text preset='paragraphLarge' mb='s40'>Digite seu email e senha para entrar</Text>
 
-          <Box mb='s20'>
-            <TextInput 
-              label='E-mail'
-              placeholder='Digite seu email' 
-              errorMessage='Mensagem de erro'
-            />
-          </Box>
-          <Box>
-            <TextInput 
-              label='Senha'
-              placeholder='Digite sua sennha' 
-              RightComponent={<Icon name="eyeOn" color='gray2'/>}
-            />
-          </Box>
-          <Text mt="s10" color='primary' preset='paragraphSmall' bold>Esqueci minha senha</Text>
+          <TextInput 
+            label='E-mail'
+            placeholder='Digite seu email' 
+            errorMessage='Mensagem de erro'
+            boxProps={{mb:'s20'}}
+          />
+          <TextInput 
+            label='Senha'
+            placeholder='Digite sua sennha' 
+            RightComponent={<Icon name="eyeOn" color='gray2'/>}
+            boxProps={{mb:'s10'}}
+          />
+
+          <Text color='primary' preset='paragraphSmall' bold>Esqueci minha senha</Text>
 
           <Button title='Entrar' mt='s48'/>
           <Button preset='outline' title='Criar uma conta' mt='s12'/>
