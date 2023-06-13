@@ -3,15 +3,31 @@ import { Pressable, TextInput as RNTextInput, TextInputProps as RNTextInputProps
 import { Box, BoxProps } from "../Box/Box";
 import { $fontFamily, $fontSizes, Text } from "../Text/Text";
 import { useAppTheme } from "../../hooks/useAppTheme";
+import { EyeOnIcon } from "../../assets/icons/EyeOnIcon";
 
 interface TextInputProps extends RNTextInputProps{
     label:string;
-
+    errorMessage?:string;
+    RightComponent?:React.ReactElement;
 }
 
-export function TextInput({label, ...rnTextInputProps} : TextInputProps){
+export function TextInput({
+    label, 
+    errorMessage,
+    RightComponent,
+    ...rnTextInputProps
+} : TextInputProps){
     const {colors} = useAppTheme();
     const inputRef = useRef<RNTextInput>(null)
+
+
+    const $textInputContainer:BoxProps = {
+        flexDirection:'row',
+        borderWidth: errorMessage ? 2 : 1,
+        borderColor: errorMessage ? 'error' : "gray4",
+        padding:'s16',
+        borderRadius:"s12"
+    }
 
     function focusInput(){
         inputRef.current?.focus()
@@ -28,21 +44,23 @@ export function TextInput({label, ...rnTextInputProps} : TextInputProps){
                         style={$textInputStyle}
                         {...rnTextInputProps} 
                     />
+                    {RightComponent && (
+                        <Box ml="s16" justifyContent="center">
+                            {RightComponent}
+                        </Box>
+                    )}
                 </Box>
+                {errorMessage && <Text preset="paragraphSmall" bold color="error">{errorMessage}</Text>}
             </Box>
         </Pressable>
     )
 }
 
 const $textInputStyle: TextStyle = {
+    flexGrow:1,
+    flexShrink:1,
     padding:0,
     fontFamily: $fontFamily.regular,
     ...$fontSizes.paragraphMedium
 }
 
-const $textInputContainer:BoxProps = {
-    borderWidth:1,
-    padding:'s16',
-    borderColor:"gray4",
-    borderRadius:"s12"
-}

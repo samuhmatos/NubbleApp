@@ -8,7 +8,6 @@ import { Button } from './src/components/Button/Button';
 import { ThemeProvider } from '@shopify/restyle';
 import { theme } from './src/theme/theme';
 import { Box } from './src/components/Box/Box';
-import { EyeOnIcon } from './src/assets/icons/EyeOnIcon';
 import { Icon } from './src/components/Icon/Icon';
 import { TextInput } from './src/components/TextInput/TextInput';
 
@@ -25,12 +24,14 @@ function App(): JSX.Element {
             <TextInput 
               label='E-mail'
               placeholder='Digite seu email' 
+              errorMessage='Mensagem de erro'
             />
           </Box>
           <Box>
             <TextInput 
               label='Senha'
               placeholder='Digite sua sennha' 
+              RightComponent={<Icon name="eyeOn" color='gray2'/>}
             />
           </Box>
           <Text mt="s10" color='primary' preset='paragraphSmall' bold>Esqueci minha senha</Text>
