@@ -8,6 +8,9 @@ import { Button } from './src/components/Button/Button';
 import { ThemeProvider } from '@shopify/restyle';
 import { theme } from './src/theme/theme';
 import { Box } from './src/components/Box/Box';
+import { EyeOnIcon } from './src/assets/icons/EyeOnIcon';
+import { Icon } from './src/components/Icon/Icon';
+import { TextInput } from './src/components/TextInput/TextInput';
 
 function App(): JSX.Element {
 
@@ -15,15 +18,25 @@ function App(): JSX.Element {
     <ThemeProvider theme={theme}>
       <SafeAreaView>
         <View style={{paddingHorizontal:20}}>
-          <Text preset='headingLarge' bold italic style={{}}>Samuel</Text>
+          <Text marginBottom='s8' preset='headingLarge'>Olá</Text>
+          <Text preset='paragraphLarge' mb='s40'>Digite seu email e senha para entrar</Text>
 
-          <Button title='Entrar' marginBottom='s20'/>
-          <Button title='Outline' marginBottom='s20' preset='outline'/>
-          <Button title='Outline' marginBottom='s20' preset='outline' loading/>
-          <Button loading title='Loading' marginBottom='s20' />
-          <Button disabled title='Desabilitado' marginBottom='s20' />
-          <Button disabled preset='outline' title='Desabilitado' marginBottom='s20' />
+          <Box mb='s20'>
+            <TextInput 
+              label='E-mail'
+              placeholder='Digite seu email' 
+            />
+          </Box>
+          <Box>
+            <TextInput 
+              label='Senha'
+              placeholder='Digite sua sennha' 
+            />
+          </Box>
+          <Text mt="s10" color='primary' preset='paragraphSmall' bold>Esqueci minha senha</Text>
 
+          <Button title='Entrar' mt='s48'/>
+          <Button preset='outline' title='Criar uma conta' mt='s12'/>
         </View>
       </SafeAreaView>
     </ThemeProvider>
