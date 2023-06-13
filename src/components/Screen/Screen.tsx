@@ -3,7 +3,7 @@ import { Box } from "../Box/Box";
 import { useAppSafeArea } from "../../hooks/useAppSafeArea";
 import { Icon } from "../Icon/Icon";
 import { Text } from "../Text/Text";
-import { ScrollView, KeyboardAvoidingView, Platform } from "react-native";
+import { KeyboardAvoidingView, Platform } from "react-native";
 import { ScrollViewContainer, ViewContainer } from "./components/ScreenContainer";
 import { useAppTheme } from "../../hooks/useAppTheme";
 
@@ -23,7 +23,10 @@ export function Screen({
     const Container = scrollable ? ScrollViewContainer : ViewContainer;
 
     return (
-        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : undefined}>
+        <KeyboardAvoidingView 
+            behavior={Platform.OS === "ios" ? "padding" : undefined} 
+            style={{flex:1}}
+        >
             <Container backgroundColor={colors.background}>
                 <Box 
                     paddingHorizontal="s24" 

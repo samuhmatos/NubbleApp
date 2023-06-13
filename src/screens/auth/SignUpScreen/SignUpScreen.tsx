@@ -4,6 +4,7 @@ import { Text } from "../../../components/Text/Text";
 import { Icon } from "../../../components/Icon/Icon";
 import { TextInput } from "../../../components/TextInput/TextInput";
 import { Button } from "../../../components/Button/Button";
+import { PasswordInput } from "../../../components/PasswordInput/PasswordInput";
 
 export function SignUpScreen(){
 
@@ -30,11 +31,10 @@ export function SignUpScreen(){
                 boxProps={{mb:'s20'}}
             />
 
-            <TextInput 
+            <PasswordInput 
                 label='Senha'
                 placeholder='Digite sua senha' 
-                RightComponent={<Icon name="eyeOn" color='gray2'/>}
-                boxProps={{mb:'s48'}}
+                boxProps={{mb:'s20'}}
             />
             
 
