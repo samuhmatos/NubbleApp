@@ -16,14 +16,28 @@ export function LoginScreen({navigation}:ScreenProps){
         navigation.navigate("SignUpScreen");
     }
 
+    function navigateToForgotPasswordScreen(){
+        navigation.navigate("ForgotPasswordScreen")
+    }
+
 
     return (
         <Screen>
-            <Text marginBottom='s8' preset='headingLarge'>Olá</Text>
-            <Text preset='paragraphLarge' mb='s40'>Digite seu email e senha para entrar</Text>
+            <Text 
+                marginBottom='s8' 
+                preset='headingLarge'
+            >
+                Olá
+            </Text>
+            <Text 
+                preset='paragraphLarge' 
+                mb='s40'
+            >
+                Digite seu email e senha para entrar
+            </Text>
 
             <TextInput
-                label='E-mail'
+                label='Email'
                 placeholder='Digite seu email' 
                 errorMessage='Mensagem de erro'
                 boxProps={{mb:'s20'}}
@@ -35,10 +49,22 @@ export function LoginScreen({navigation}:ScreenProps){
                 boxProps={{mb:'s10'}}
             />
 
-            <Text color='primary' preset='paragraphSmall' bold>Esqueci minha senha</Text>
+            <Text 
+                color='primary' 
+                preset='paragraphSmall' 
+                bold
+                onPress={navigateToForgotPasswordScreen}
+            >
+                Esqueci minha senha
+            </Text>
 
             <Button title='Entrar' mt='s48'/>
-            <Button preset='outline' title='Criar uma conta' mt='s12' onPress={navigationToSignUpScreen}/>
+            <Button 
+                preset='outline' 
+                title='Criar uma conta' 
+                mt='s12' 
+                onPress={navigationToSignUpScreen}
+            />
         </Screen>  
     )
 }
