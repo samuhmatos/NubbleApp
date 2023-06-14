@@ -8,6 +8,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../routes/routes";
 import { useResetNavigationSuccess } from "../../../hooks/useResetNavigationSuccess";
 import { Controller, useForm } from "react-hook-form";
+import { FormTextInput } from "../../../components/Form/FormTextInput";
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>
 type SignUpFormType = {
@@ -51,7 +52,17 @@ export function SignUpScreen({navigation}:ScreenProps){
         <Screen canGoBack scrollable>
             <Text preset="headingLarge" mb="s32">Criar uma conta</Text>
 
-            <Controller
+            <FormTextInput 
+                control={control}
+                name="username"
+                rules={{
+                    required:'Username é obrigatório!',
+                }}
+                label='Seu username'
+                placeholder='@'
+                boxProps={{mb:'s20'}}
+            />
+            {/* <Controller
                 control={control}
                 name="username"
                 rules={{
@@ -67,7 +78,7 @@ export function SignUpScreen({navigation}:ScreenProps){
                         boxProps={{mb:'s20'}}
                     />
                 )}
-            />
+            /> */}
 
             <Controller
                 control={control}
@@ -83,6 +94,7 @@ export function SignUpScreen({navigation}:ScreenProps){
                         label='Nome Completo'
                         placeholder='Digite seu nome' 
                         boxProps={{mb:'s20'}}
+                        autoCapitalize="words"
                     />
                 )}
             />
