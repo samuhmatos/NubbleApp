@@ -14,6 +14,7 @@ export function SignUpScreen({navigation}:ScreenProps){
     
     function submitForm(){
         //TODO: Implementar
+        navigation.navigate("SuccessScreen")
     }
 
 
