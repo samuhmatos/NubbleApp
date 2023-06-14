@@ -8,6 +8,8 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../routes/routes";
 import { useForm, Controller } from "react-hook-form";
 import { Alert } from "react-native";
+import { FormTextInput } from "../../../components/Form/FormTextInput";
+import { FormPasswordInput } from "../../../components/Form/FormPasswordInput";
 
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>
@@ -40,20 +42,10 @@ export function LoginScreen({navigation}:ScreenProps){
 
     return (
         <Screen>
-            <Text 
-                marginBottom='s8' 
-                preset='headingLarge'
-            >
-                Olá
-            </Text>
-            <Text 
-                preset='paragraphLarge' 
-                mb='s40'
-            >
-                Digite seu email e senha para entrar
-            </Text>
-
-            <Controller
+            <Text marginBottom='s8' preset='headingLarge'>Olá</Text>
+            <Text preset='paragraphLarge' mb='s40'>Digite seu email e senha para entrar</Text>
+            
+            <FormTextInput
                 control={control}
                 name="email"
                 rules={{
@@ -63,20 +55,12 @@ export function LoginScreen({navigation}:ScreenProps){
                         message:"Email inválido"
                     }
                 }}
-                render={({field, fieldState, formState})=>(
-                    <TextInput
-                        errorMessage={fieldState.error?.message}
-                        value={field.value}
-                        onChangeText={field.onChange}
-                        label='Email'
-                        placeholder='Digite seu email' 
-                        boxProps={{mb:'s20'}}
-                    />
-                )}
+                boxProps={{mb:'s20'}}
+                label='Email'
+                placeholder='Digite seu email' 
             />
 
-
-            <Controller
+            <FormPasswordInput
                 control={control}
                 name="password"
                 rules={{
@@ -86,26 +70,10 @@ export function LoginScreen({navigation}:ScreenProps){
                         message:'Senha deve ter no mínimo 8 caracteres'
                     }
                 }}
-                render={({field, fieldState, formState})=>(
-                    <PasswordInput
-                        errorMessage={fieldState.error?.message}
-                        value={field.value}
-                        onChangeText={field.onChange}
-                        label='Senha'
-                        placeholder='Digite sua senha'
-                        boxProps={{mb:'s10'}}
-                    />
-                )}
-            />
-
-
-            
-            {/* <PasswordInput 
                 label='Senha'
                 placeholder='Digite sua senha'
-                boxProps={{mb:'s10'}}
-            /> */}
-
+                boxProps={{mb:'s10'}} 
+            />
 
             <Text 
                 color='primary' 
