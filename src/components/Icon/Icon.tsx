@@ -39,14 +39,14 @@ export interface IconBase{
     color?:string,
 }
 
-export interface Props{
+export interface IconProps{
     name:IconName;
     color?:ThemeColors,
     size?:number,
     onPress?: ()=> void;
 }
 
-export function Icon({name,color = 'backgroundContrast', size, onPress}:Props){
+export function Icon({name,color = 'backgroundContrast', size, onPress}:IconProps){
     const {colors} = useAppTheme()
 
     const SVGIcon = iconRegistry[name];
