@@ -15,7 +15,7 @@ export function SuccessScreen({
     const {title, description, icon} = route.params;
 
     function goBackToBegin(){
-        navigation.navigate("LoginScreen")
+        navigation.goBack()
     }
 
     return (
