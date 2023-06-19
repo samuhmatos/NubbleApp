@@ -1,15 +1,18 @@
 import React from "react";
-import { Screen } from "../../../components/Screen/Screen";
-import { Text } from "../../../components/Text/Text";
-import { Button } from "../../../components/Button/Button";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../../routes/routes";
-import { useResetNavigationSuccess } from "../../../hooks/useResetNavigationSuccess";
 import { useForm } from "react-hook-form";
-import { FormTextInput } from "../../../components/Form/FormTextInput";
-import { FormPasswordInput } from "../../../components/Form/FormPasswordInput";
-import { SignUpSchema, signUpSchema } from "./signUpSchema";
 import {zodResolver} from '@hookform/resolvers/zod'
+
+import { SignUpSchema, signUpSchema } from "./signUpSchema";
+import {
+    Text, 
+    Button, 
+    Screen,
+    FormTextInput,
+    FormPasswordInput
+} from '@components'
+import { RootStackParamList } from "@routes";
+import { useResetNavigationSuccess } from "@hooks";
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>
 
@@ -31,7 +34,6 @@ export function SignUpScreen({navigation}:ScreenProps){
     function submitForm(formValues:SignUpSchema){
         console.log(formValues)
         
-        /*
         reset({
             title:'Sua conta foi criada com sucesso!',
             description:'Agora é só fazer o login na nossa plataforma',
@@ -40,7 +42,6 @@ export function SignUpScreen({navigation}:ScreenProps){
                 color:'success'
             }
         })
-        */
         
     }
 
