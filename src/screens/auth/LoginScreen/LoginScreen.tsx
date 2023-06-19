@@ -1,88 +1,90 @@
-import React from "react";
+import React from 'react';
+import {Alert} from 'react-native';
 
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { useForm } from "react-hook-form";
-import { Alert } from "react-native";
-import {zodResolver} from '@hookform/resolvers/zod'
+import {zodResolver} from '@hookform/resolvers/zod';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {useForm} from 'react-hook-form';
 
-import { LoginSchema, loginSchema } from "./loginScreenSchema";
 import {
-    Text, 
-    Button, 
-    Screen,
-    FormTextInput,
-    FormPasswordInput
-} from '@components'
-import { RootStackParamList } from "@routes";
+  Text,
+  Button,
+  Screen,
+  FormTextInput,
+  FormPasswordInput,
+} from '@components';
+import {RootStackParamList} from '@routes';
 
-type ScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>
+import {LoginSchema, loginSchema} from './loginScreenSchema';
 
+type ScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>;
 
-export function LoginScreen({navigation}:ScreenProps){
-    const {control, formState, handleSubmit} = useForm<LoginSchema>({
-        resolver: zodResolver(loginSchema),
-        defaultValues:{
-            email:'',
-            password:'',
-        },
-        mode:'onChange'
-    })
+export function LoginScreen({navigation}: ScreenProps) {
+  const {control, formState, handleSubmit} = useForm<LoginSchema>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+    mode: 'onChange',
+  });
 
-    function navigationToSignUpScreen(){
-        navigation.navigate("SignUpScreen");
-    }
+  function navigationToSignUpScreen() {
+    navigation.navigate('SignUpScreen');
+  }
 
-    function navigateToForgotPasswordScreen(){
-        navigation.navigate("ForgotPasswordScreen")
-    }
+  function navigateToForgotPasswordScreen() {
+    navigation.navigate('ForgotPasswordScreen');
+  }
 
-    function submitForm({email, password}:LoginSchema){
-        Alert.alert(`Email: ${email} ${'\n'} Senha: ${password}`)
-    }
+  function submitForm({email, password}: LoginSchema) {
+    Alert.alert(`Email: ${email} ${'\n'} Senha: ${password}`);
+  }
 
+  return (
+    <Screen>
+      <Text marginBottom="s8" preset="headingLarge">
+        Olá
+      </Text>
+      <Text preset="paragraphLarge" mb="s40">
+        Digite seu email e senha para entrar
+      </Text>
 
-    return (
-        <Screen>
-            <Text marginBottom='s8' preset='headingLarge'>Olá</Text>
-            <Text preset='paragraphLarge' mb='s40'>Digite seu email e senha para entrar</Text>
-            
-            <FormTextInput
-                control={control}
-                name="email"
-                boxProps={{mb:'s20'}}
-                label='Email'
-                placeholder='Digite seu email' 
-            />
+      <FormTextInput
+        control={control}
+        name="email"
+        boxProps={{mb: 's20'}}
+        label="Email"
+        placeholder="Digite seu email"
+      />
 
-            <FormPasswordInput
-                control={control}
-                name="password"
-                label='Senha'
-                placeholder='Digite sua senha'
-                boxProps={{mb:'s10'}} 
-            />
+      <FormPasswordInput
+        control={control}
+        name="password"
+        label="Senha"
+        placeholder="Digite sua senha"
+        boxProps={{mb: 's10'}}
+      />
 
-            <Text 
-                color='primary' 
-                preset='paragraphSmall' 
-                bold
-                onPress={navigateToForgotPasswordScreen}
-            >
-                Esqueci minha senha
-            </Text>
+      <Text
+        color="primary"
+        preset="paragraphSmall"
+        bold
+        onPress={navigateToForgotPasswordScreen}>
+        Esqueci minha senha
+      </Text>
 
-            <Button 
-                title='Entrar' 
-                mt='s48'
-                onPress={handleSubmit(submitForm)}
-                disabled={!formState.isValid}
-            />
-            <Button 
-                preset='outline' 
-                title='Criar uma conta' 
-                mt='s12' 
-                onPress={navigationToSignUpScreen}
-            />
-        </Screen>  
-    )
+      <Button
+        title="Entrar"
+        mt="s48"
+        onPress={handleSubmit(submitForm)}
+        disabled={!formState.isValid}
+      />
+      <Button
+        preset="outline"
+        title="Criar uma conta"
+        mt="s12"
+        onPress={navigationToSignUpScreen}
+      />
+    </Screen>
+  );
 }
