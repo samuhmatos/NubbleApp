@@ -1,6 +1,5 @@
 {
-    "java.compile.nullAnalysis.mode": "disabled",
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    }
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
