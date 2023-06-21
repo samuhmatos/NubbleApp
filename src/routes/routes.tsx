@@ -3,8 +3,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 
-import {LoginScreen, SignUpScreen, SuccessScreen, ForgotPasswordScreen} from '@screens'
 import { IconProps } from "@components";
+import {AppStack, AuthStack} from '@routes'
 
 
 export type RootStackParamList = {
@@ -18,23 +18,17 @@ export type RootStackParamList = {
     ForgotPasswordScreen: undefined;
 }
 
-const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export function Router(){
+    const authenticated = true;
+    
     return (
         <NavigationContainer>
-            <Stack.Navigator 
-                initialRouteName="LoginScreen" 
-                screenOptions={{
-                    headerShown:false,
-                    fullScreenGestureEnabled: true
-                }}
-            >
-                <Stack.Screen name="LoginScreen" component={LoginScreen} />
-                <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
-                <Stack.Screen name="SuccessScreen" component={SuccessScreen} />
-                <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} />
-            </Stack.Navigator>
+            {authenticated ? (
+                <AppStack />
+            ):(
+                <AuthStack />
+            )}
         </NavigationContainer>
     )
 }

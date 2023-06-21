@@ -13,7 +13,6 @@ import {
   FormPasswordInput,
 } from '@components';
 import {RootStackParamList} from '@routes';
-
 import {LoginSchema, loginSchema} from './loginScreenSchema';
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>;
@@ -25,7 +24,7 @@ export function LoginScreen({navigation}: ScreenProps) {
       email: '',
       password: '',
     },
-    mode: 'onChange',
+    mode: 'onChange'
   });
 
   function navigationToSignUpScreen() {
