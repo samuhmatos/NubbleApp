@@ -1,9 +1,9 @@
 import { Button, Screen, Text } from "@components";
 import React from "react";
-import { AppScreenProps } from "@types";
+import { AppTabsScreenProps } from "@types";
 
 
-export function MyProfileScreen({navigation}:AppScreenProps<'AppTabNavigator'>){
+export function MyProfileScreen({navigation}:AppTabsScreenProps<'MyProfileScreen'>){
     return (
         <Screen>
             <Text preset="headingLarge">profile Screen</Text>

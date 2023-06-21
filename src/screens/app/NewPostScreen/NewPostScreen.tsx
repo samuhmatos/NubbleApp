@@ -1,9 +1,9 @@
 import { Button, Screen, Text } from "@components";
 import React from "react";
-import { AppScreenProps } from "@types";
+import { AppTabsScreenProps } from "@types";
 
 
-export function NewPostScreen({navigation}:AppScreenProps<'AppTabNavigator'>){
+export function NewPostScreen({navigation}:AppTabsScreenProps<'NewPostScreen'>){
     return (
         <Screen>
             <Text preset="headingLarge">New post Screen</Text>

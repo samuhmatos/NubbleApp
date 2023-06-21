@@ -1,9 +1,9 @@
 import { Button, Screen, Text } from "@components";
 import React from "react";
-import { AppScreenProps } from "@types";
+import { AppTabsScreenProps } from "@types";
 
 
-export function FavoriteScreen({navigation}:AppScreenProps<'AppTabNavigator'>){
+export function FavoriteScreen({navigation}:AppTabsScreenProps<'FavoriteScreen'>){
     return (
         <Screen>
             <Text preset="headingLarge">favorite Screen</Text>
