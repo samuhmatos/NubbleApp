@@ -1,6 +1,6 @@
 import { Screen, Text } from '@components'
 import React from 'react'
-import { AppScreenProps } from 'src/@types/navigationType'
+import { AppScreenProps } from '@types'
 
 
 export function SettingsScreen(props: AppScreenProps<'SettingsScreen'>) {
