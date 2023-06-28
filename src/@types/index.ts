@@ -1,2 +1,2 @@
 export * from './navigationType'
-export * from './posts.Type'
+export * from './postsType'
