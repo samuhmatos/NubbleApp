@@ -1,4 +1,4 @@
-import { Box, Button, Screen, Text } from "@components";
+import { Box, Button, PostItem, Screen, Text } from "@components";
 import React, { useEffect, useState } from "react";
 import { AppTabsScreenProps, Post } from "@types";
 import { postService } from "@domain";
@@ -15,21 +15,8 @@ export function HomeScreen({navigation}:AppTabsScreenProps<'HomeScreen'>){
 
 
     function renderItem({item}: ListRenderItemInfo<Post>){
-        return(
-            <Box mb="s24">
-                <Box flexDirection="row">
-                    <Image 
-                        source={{uri: item.author.profileURL}} 
-                        style={{width:32, height:32}} 
-                    />
-                    <Text>{item.author.userName}</Text>
-                </Box>
-                <Image
-                    source={{uri: item.imageURL}}
-                    resizeMode="cover"
-                    style={{width: Dimensions.get('screen').width, height: 300}}
-                />
-            </Box>
+        return (
+            <PostItem post={item}/>
         )
     }
 
