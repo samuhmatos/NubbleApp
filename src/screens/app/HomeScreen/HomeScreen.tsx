@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { AppTabsScreenProps, Post } from "@types";
 import { postService } from "@domain";
 import { Dimensions, FlatList, Image, ListRenderItemInfo, StyleProp, ViewStyle } from "react-native";
+import { HomeHeader } from "./components/HomeHeader";
 
 
 
@@ -29,6 +30,7 @@ export function HomeScreen({navigation}:AppTabsScreenProps<'HomeScreen'>){
                 keyExtractor={(item)=> item.id}
                 renderItem={renderItem}
                 showsVerticalScrollIndicator={false}
+                ListHeaderComponent={<HomeHeader/>}
             />
         </Screen>
     )
