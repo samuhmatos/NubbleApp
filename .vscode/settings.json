@@ -1,4 +1,6 @@
 {
-  "editor.codeActionsOnSave": {},
-  "java.compile.nullAnalysis.mode": "automatic"
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "java.compile.nullAnalysis.mode": "automatic",
 }

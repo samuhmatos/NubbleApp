@@ -10,7 +10,8 @@
       "@theme": ["src/theme"],
       "@types": ["src/@types"],
       "@domain": ["src/domain"],
-      "@brand": ["src/brand"]
+      "@brand": ["src/brand"],
+      "@api": ["src/api"]
     }
   }
 }

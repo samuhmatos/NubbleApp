@@ -1,43 +1,39 @@
-import { Box, Button, PostItem, Screen, Text } from "@components";
-import React, { useEffect, useState } from "react";
-import { AppTabsScreenProps, Post } from "@types";
-import { postService } from "@domain";
-import { Dimensions, FlatList, Image, ListRenderItemInfo, StyleProp, ViewStyle } from "react-native";
-import { HomeHeader } from "./components/HomeHeader";
+import React, {useEffect, useState} from 'react';
+import {FlatList, ListRenderItemInfo, StyleProp, ViewStyle} from 'react-native';
 
+import {postService} from '@domain';
+import {AppTabsScreenProps, Post} from '@types';
 
+import {Box, Button, PostItem, Screen, Text} from '@components';
 
-export function HomeScreen({navigation}:AppTabsScreenProps<'HomeScreen'>){
-    const [postList, setPostList] = useState<Post[]>([])
-    
-    useEffect(()=>{
-        postService.getList().then(list => setPostList(list))
-    },[])
+import {HomeHeader} from './components/HomeHeader';
 
+export function HomeScreen({navigation}: AppTabsScreenProps<'HomeScreen'>) {
+  const [postList, setPostList] = useState<Post[]>([]);
 
-    function renderItem({item}: ListRenderItemInfo<Post>){
-        return (
-            <PostItem post={item}/>
-        )
-    }
+  useEffect(() => {
+    postService.getList().then(list => setPostList(list));
+  }, []);
 
-    return (
-        <Screen
-            style={$screen}
-        >
-           <FlatList
-                data={postList}                
-                keyExtractor={(item)=> item.id}
-                renderItem={renderItem}
-                showsVerticalScrollIndicator={false}
-                ListHeaderComponent={<HomeHeader/>}
-            />
-        </Screen>
-    )
+  function renderItem({item}: ListRenderItemInfo<Post>) {
+    return <PostItem post={item} />;
+  }
+
+  return (
+    <Screen style={$screen}>
+      <FlatList
+        data={postList}
+        keyExtractor={item => item.id}
+        renderItem={renderItem}
+        showsVerticalScrollIndicator={false}
+        ListHeaderComponent={<HomeHeader />}
+      />
+    </Screen>
+  );
 }
 
 const $screen: StyleProp<ViewStyle> = {
-    paddingBottom:0,
-    paddingTop:0,
-    paddingHorizontal:0
-}
+  paddingBottom: 0,
+  paddingTop: 0,
+  paddingHorizontal: 0,
+};
