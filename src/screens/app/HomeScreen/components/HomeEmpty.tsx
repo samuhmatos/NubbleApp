@@ -8,11 +8,12 @@ interface Props {
   refetch: () => void;
 }
 export function HomeEmpty({loading, error, refetch}: Props) {
-  var component = (
+  let component = (
     <Text bold preset="paragraphMedium">
       Não há publicações no seu feed
     </Text>
   );
+
   if (loading) {
     component = <ActivityIndicator color="primary" />;
   }
@@ -21,9 +22,9 @@ export function HomeEmpty({loading, error, refetch}: Props) {
     component = (
       <>
         <Text bold preset="paragraphMedium" mb="s16">
-          Não foi possível carregar o feed{' '}
+          Não foi possível carregar o feed 😢
         </Text>
-        <Button title="Recarregar" preset="outline" onPress={refetch} />
+        <Button title="recarregar" preset="outline" onPress={refetch} />
       </>
     );
   }
