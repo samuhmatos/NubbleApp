@@ -4,7 +4,7 @@ import {FlatList, ListRenderItemInfo, StyleProp, ViewStyle} from 'react-native';
 import {postService} from '@domain';
 import {AppTabsScreenProps, Post} from '@types';
 
-import {Box, Button, PostItem, Screen, Text} from '@components';
+import {PostItem, Screen} from '@components';
 
 import {HomeHeader} from './components/HomeHeader';
 

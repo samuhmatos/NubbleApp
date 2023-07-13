@@ -1,7 +1,5 @@
 import {PageAPI, PostAPI} from '@types';
 
-import {postListMock} from './postListMock';
-
 async function getList(): Promise<PageAPI<PostAPI>> {
   let headerList = {
     Authorization:
