@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {
   FlatList,
   ListRenderItemInfo,
@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import {usePostList} from '@domain';
+import {useScrollToTop} from '@react-navigation/native';
 import {AppTabsScreenProps, Post} from '@types';
 
 import {PostItem, Screen} from '@components';
@@ -18,6 +19,9 @@ import {HomeHeader} from './components/HomeHeader';
 export function HomeScreen({}: AppTabsScreenProps<'HomeScreen'>) {
   const {loading, error, postList, refresh, fetchNextPage} = usePostList();
 
+  const flatListRef = useRef<FlatList<Post>>(null);
+  useScrollToTop(flatListRef);
+
   function renderItem({item}: ListRenderItemInfo<Post>) {
     return <PostItem post={item} />;
   }
@@ -25,6 +29,7 @@ export function HomeScreen({}: AppTabsScreenProps<'HomeScreen'>) {
   return (
     <Screen style={$screen}>
       <FlatList
+        ref={flatListRef}
         showsVerticalScrollIndicator={false}
         data={postList}
         keyExtractor={item => item.id}
