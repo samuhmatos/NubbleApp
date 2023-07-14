@@ -8,7 +8,9 @@
     "lint": "eslint .",
     "start": "react-native start",
     "clear": "react-native start --reset-cache",
-    "test": "jest"
+    "test": "jest",
+    "adb": "adb reverse tcp:3333 tcp:3333",
+    "devTools": "adb reverse tcp:8097 tcp:8097"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.1",
