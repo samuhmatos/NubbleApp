@@ -32,13 +32,13 @@ export function HomeScreen({}: AppTabsScreenProps<'HomeScreen'>) {
         onEndReached={fetchNextPage}
         onEndReachedThreshold={0.1}
         refreshing={loading}
+        contentContainerStyle={{flex: postList.length === 0 ? 1 : undefined}}
         refreshControl={
           <RefreshControl refreshing={loading} onRefresh={refresh} />
         }
-        contentContainerStyle={{flex: postList.length === 0 ? 1 : undefined}}
         ListHeaderComponent={<HomeHeader />}
         ListEmptyComponent={
-          <HomeEmpty refresh={refresh} error={error} loading={loading} />
+          <HomeEmpty refetch={refresh} error={error} loading={loading} />
         }
       />
     </Screen>

@@ -1,22 +1,26 @@
 import {useEffect, useState} from 'react';
 
+import {postService} from '@domain';
 import {Post} from '@types';
-
-import {postService} from '../postService';
 
 export function usePostList() {
   const [postList, setPostList] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<boolean | null>(null);
   const [page, setPage] = useState<number>(1);
+  const [hasNextPage, setHasNextPage] = useState<boolean>(true);
 
   async function fetchInitialData() {
     try {
       setError(null);
       setLoading(true);
-      const list = await postService.getList(1);
-      setPostList(list);
-      setPage(2);
+      const {data, meta} = await postService.getList(1);
+      setPostList(data);
+      if (meta.hasNextPage) {
+        setPage(2);
+      } else {
+        setHasNextPage(false);
+      }
     } catch (er) {
       setError(true);
     } finally {
@@ -25,17 +29,20 @@ export function usePostList() {
   }
 
   async function fetchNextPage() {
-    if (loading) {
+    if (loading || !hasNextPage) {
       return;
     }
 
     try {
-      setError(null);
       setLoading(true);
-      const list = await postService.getList(page);
-      setPostList(prev => [...prev, ...list]);
-      setPage(prev => prev + 1);
-    } catch (error) {
+      const {data, meta} = await postService.getList(page);
+      setPostList(prev => [...prev, ...data]);
+      if (meta.hasNextPage) {
+        setPage(prev => prev + 1);
+      } else {
+        setHasNextPage(false);
+      }
+    } catch (er) {
       setError(true);
     } finally {
       setLoading(false);
