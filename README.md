@@ -1,6 +1,7 @@
 # Nubble App
 
-Nubble App is a social networking application built with React Native, TypeScript, React Native CLI, and @shopify/restyle. It aims to provide users with an engaging platform to connect and share their experiences through a familiar and intuitive user interface.
+Nubble App is a social networking application built with React Native CLI, TypeScript, and @shopify/restyle. It aims to provide users with an engaging platform to connect and share their experiences through a familiar and intuitive user interface.
+Nubble App é um aplicativo de rede social feito com Rect Native CLI, TypeScript e @shopify/restyle.
 
 ## Features
 
