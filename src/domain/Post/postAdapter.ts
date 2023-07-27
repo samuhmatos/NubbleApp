@@ -8,9 +8,10 @@ function toPost(postAPI: PostAPI): Post {
     id: postAPI.id.toString(),
     text: postAPI.text,
     author: {
-      profileURL: postAPI.user.profile_url,
+      id: postAPI.user.id,
       name: postAPI.user.full_name,
       userName: postAPI.user.username,
+      profileURL: postAPI.user.profile_url,
     },
     imageURL: postAPI.image_url,
     reactionCount: parseInt(postAPI.meta.like_count, 10),
