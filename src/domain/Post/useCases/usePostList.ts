@@ -22,6 +22,7 @@ export function usePostList() {
         setHasNextPage(false);
       }
     } catch (er) {
+      console.log(er);
       setError(true);
     } finally {
       setLoading(false);
