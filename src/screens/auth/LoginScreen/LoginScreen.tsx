@@ -2,6 +2,7 @@ import React from 'react';
 import {Alert} from 'react-native';
 
 import {zodResolver} from '@hookform/resolvers/zod';
+import {AuthScreenProps} from '@types';
 import {useForm} from 'react-hook-form';
 
 import {
@@ -11,9 +12,8 @@ import {
   FormTextInput,
   FormPasswordInput,
 } from '@components';
-import {LoginSchema, loginSchema} from './loginScreenSchema';
-import { AuthScreenProps } from '@types';
 
+import {LoginSchema, loginSchema} from './loginScreenSchema';
 
 export function LoginScreen({navigation}: AuthScreenProps<'LoginScreen'>) {
   const {control, formState, handleSubmit} = useForm<LoginSchema>({
@@ -22,7 +22,7 @@ export function LoginScreen({navigation}: AuthScreenProps<'LoginScreen'>) {
       email: '',
       password: '',
     },
-    mode: 'onChange'
+    mode: 'onChange',
   });
 
   function navigationToSignUpScreen() {

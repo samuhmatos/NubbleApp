@@ -5,7 +5,7 @@ import {Post, PostAPI} from '@types';
  */
 function toPost(postAPI: PostAPI): Post {
   return {
-    id: postAPI.id.toString(),
+    id: postAPI.id,
     text: postAPI.text,
     author: {
       id: postAPI.user.id,
