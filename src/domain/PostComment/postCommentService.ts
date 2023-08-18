@@ -5,7 +5,7 @@ import {postCommentAdapter} from './postCommentAdapter';
 import {postCommentApi} from './postCommentApi';
 import {PostComment} from './postCommentTypes';
 
-const PER_PAGE = 5;
+const PER_PAGE = 10;
 
 async function getList(
   postId: number,
